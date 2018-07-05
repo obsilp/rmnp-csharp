@@ -52,7 +52,8 @@ namespace rmnp
 			if (!address.Contains(":")) throw new Exception("Port has to be specified");
 
 			string[] data = address.Split(':');
-			this.Address = new IPEndPoint(IPAddress.Parse(data[0]), int.Parse(data[1]));
+			var dnsAddress = Dns.GetHostAddresses(data[0])[0];
+			this.Address = new IPEndPoint(dnsAddress, int.Parse(data[1]));
 
 			this.listeners = new List<Thread>();
 			this.connectGuard = new ExecGuard();

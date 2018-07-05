@@ -87,7 +87,7 @@ namespace rmnp
 		// Client.ServerTimeout is called.
 		public void Connect(byte[] data)
 		{
-			this.SetSocket(new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp));
+			this.SetSocket(new Socket(AddressFamily.InterNetworkV6, SocketType.Dgram, ProtocolType.Udp));
 			this.Listen();
 			this.Server = this.ConnectClient(this.Address, data);
 		}

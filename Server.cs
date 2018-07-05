@@ -85,7 +85,7 @@ namespace rmnp
 		// the server is guaranteed to be running after this call.
 		public void Start()
 		{
-			Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
+			Socket socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Dgram, ProtocolType.Udp);
 			socket.Bind(this.Address);
 			this.Listen();
 		}
