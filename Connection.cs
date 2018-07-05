@@ -212,12 +212,7 @@ namespace rmnp
 		private void KeepAlive()
 		{
 			// case < -time.After((CfgTimeoutThreshold / 2) * time.Millisecond):
-
-			if (this.GetState() == ConnectionState.DISCONNECTED)
-			{
-				return;
-			}
-
+			
 			long currentTime = Util.CurrentTime();
 
 			if (currentTime - this.lastReceivedTime > Config.CfgTimeoutThreshold || this.GetPing() > Config.CfgMaxPing)
