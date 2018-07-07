@@ -99,7 +99,7 @@ namespace rmnp
 			this.Socket = socket;
 			this.Socket.SendBufferSize = Config.CfgMTU;
 			this.Socket.ReceiveBufferSize = Config.CfgMTU;
-			this.Socket.Blocking = false;
+			this.Socket.ReceiveTimeout = 1000;
 		}
 
 		protected void Listen()
@@ -129,7 +129,6 @@ namespace rmnp
 
 					byte[] buffer = this.bufferPool.Get();
 
-					this.Socket.ReceiveTimeout = 1000;
 					this.readFunc(this.Socket, ref buffer, out length, out addr, out next);
 
 					if (!next)
